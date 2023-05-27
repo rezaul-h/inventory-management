@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 07:19 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: May 27, 2023 at 09:20 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,15 @@ CREATE TABLE `clientorder` (
   `ItemQty` int(10) NOT NULL,
   `ItemPrice` float NOT NULL,
   `orderStatus` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `clientorder`
+--
+
+INSERT INTO `clientorder` (`OrderID`, `clientorderId`, `ClientOrderNo`, `ClientName`, `OrderItem`, `ItemQty`, `ItemPrice`, `orderStatus`) VALUES
+(9716, 6707, 27210753, 'Antu', 11, 50, 10, 'Complete'),
+(9717, 1336, 27211809, 'Antu', 11, 100, 10, 'Complete');
 
 -- --------------------------------------------------------
 
@@ -48,7 +56,14 @@ CREATE TABLE `clients` (
   `ClientId` int(10) NOT NULL,
   `ClientName` varchar(50) NOT NULL,
   `ClientAddress` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`ClientId`, `ClientName`, `ClientAddress`) VALUES
+(2, 'Antu', 'USA');
 
 -- --------------------------------------------------------
 
@@ -63,7 +78,14 @@ CREATE TABLE `products` (
   `ProdUnit` varchar(50) NOT NULL,
   `ProdUnitPrice` double NOT NULL,
   `ProdExpiry` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`ProdId`, `ProdDescription`, `ProdQuantity`, `ProdUnit`, `ProdUnitPrice`, `ProdExpiry`) VALUES
+(11, 'Lux', -49, '2', 10, '2023-05-28');
 
 -- --------------------------------------------------------
 
@@ -80,7 +102,14 @@ CREATE TABLE `purchaseorder` (
   `OrderQty` int(10) NOT NULL,
   `OrderPrice` float NOT NULL,
   `OrderStatus` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchaseorder`
+--
+
+INSERT INTO `purchaseorder` (`PoID`, `PurchaseorderId`, `PurchaseorderNo`, `SupplierName`, `Orders`, `OrderQty`, `OrderPrice`, `OrderStatus`) VALUES
+(46, 24124, 27210547, 'Umiliver', 11, 100, 100, 'Complete');
 
 -- --------------------------------------------------------
 
@@ -91,8 +120,16 @@ CREATE TABLE `purchaseorder` (
 CREATE TABLE `supplier` (
   `SupId` int(11) NOT NULL,
   `SupName` varchar(50) NOT NULL,
-  `SupAddress` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `SupAddress` varchar(50) NOT NULL,
+  `SupMobile` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`SupId`, `SupName`, `SupAddress`, `SupMobile`) VALUES
+(5, 'Umiliver', 'Dhaka', '+2154365421');
 
 -- --------------------------------------------------------
 
@@ -104,7 +141,7 @@ CREATE TABLE `users` (
   `UserID` int(10) NOT NULL,
   `UserName` varchar(50) NOT NULL,
   `UserPassword` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -161,31 +198,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `clientorder`
 --
 ALTER TABLE `clientorder`
-  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9708;
+  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9718;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `ClientId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ClientId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProdId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ProdId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `purchaseorder`
 --
 ALTER TABLE `purchaseorder`
-  MODIFY `PoID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `PoID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `SupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
