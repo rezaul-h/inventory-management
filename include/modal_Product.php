@@ -7,13 +7,12 @@
 					<h3 id="Title">Create Product</h3>
 					<span class="close">&times;</span>
 				</div>
+
 				
 					<div class="form-group">
 						<input type="text" class="form-control" name="productdesc"placeholder="Product Description">
 					</div>
-					<div class="form-group">
-						<input type="text" id="prodname" class="form-control" name="productname" placeholder="Product Description">
-					</div>
+					
 					<div class="form-group">
 						<input type="text" class="form-control"  name="productqty"placeholder="Product Quantity">
 					</div>
@@ -43,13 +42,10 @@
 				<span class="close">&times;</span>
 			</div>
 				
-
 				<div class="form-group">
 					<input type="text" id="proddesc" class="form-control" name="productdesc" placeholder="Product Name">
 				</div>
-				<div class="form-group">
-					<input type="text" id="prodname" class="form-control" name="productname" placeholder="Product Description">
-				</div>
+			
 				<div class="form-group">
 					<input type="text" id="prodqty" class="form-control"  name="productqty" placeholder="Product Quantity">
 				</div>
